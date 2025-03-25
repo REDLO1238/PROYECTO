@@ -1,0 +1,32 @@
+.tutorial{
+    width: 600px;
+    text-align: center;
+    margin: auto;
+}
+figure.image{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+figure .image img{
+    width: 128px;
+}
+.notification{
+    margin-top: 20px !important;
+}
+.title .icon{
+    margin-bottom: 15px;
+}
+.hero{
+    margin-bottom: 20px;
+}
+.forms{
+    display: flex;
+    justify-content: space-around;
+}
+.dropdown-item{
+    display: flex;
+    align-items: center;
+    height: 68px;
+    margin-right: 10px;
+}
