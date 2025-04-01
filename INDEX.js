@@ -1,3 +1,16 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
 const fetchData= async(searchTerm)=> {
     const response = await axios.get('http://omdbapi.com',{
         params: {
@@ -13,6 +26,35 @@ const fetchData= async(searchTerm)=> {
 }
 //fetchData()
 
+
+autocompleteConfig = {
+    renderOption(movie){
+        const imgSrc = movie.Poster === 'N/A' ? '' : movie.Poster
+        return  `
+        <img src="${imgSrc}"/>
+        ${movie.Title} (${movie.Year})`
+    },
+    inputValue(movie){
+        return movie.Title
+    },
+    async fetchData(searchTerm){
+        apiMovieURL='http://www.omdbapi.com'
+        const response = await axios.get(apiMovieURL, {
+            params:'78bfc083'
+            s:searchTerm
+        })
+        if(response.data.Error){
+            return[]
+        }
+        console.log(response.data)
+        return response.data.Search
+    }
+}
+
+createAutocomplete({
+    ...autocompleteConfig,
+    root: document.querySelector()
+})
 const root = document.querySelector('.autocomplete')
 root.innerHTML=`
 <label><b>Busqueda de peliculas</b></label>
